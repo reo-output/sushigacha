@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>スシロー1000円ガチャ</title>
+	<meta name="viewport" content="width=750">
+	<link rel=stylesheet type=text/css href="style.css">
+</head>
+<body>
+	<div class=page>
+  		<div class = "heading">
+    		<h1>スシロー</h1>
+    		<h1>1000円ガチャ</h1>
+  		</div>
+  		<div class = "buttonarea">
+    		<a href="/get" class="btn">ガチャを回す</a>
+  		</div>
+
+ 
+  <div class="result">
+   {% for menu in menus %}
+    <div class="box menu">
+      <h2>{{ menu.name }}</h2>
+        <p>{{ menu.price }}円　{{ menu.calorie }}kcal　塩分 {{ menu.salt }}g<p>
+    </div>
+    {% else %}
+    {% endfor %}
+    {% if menus %}
+    <div class="box rst">
+      <h2>計 {{ budget }}円　{{ calorie }}kcal　塩分 {{ salt }}g</h2>
+    </div>
+    {% endif %}
+
+  </div>
+  <h2>結果表示ページ</h2>
+</div>
+</body>
+</html>
